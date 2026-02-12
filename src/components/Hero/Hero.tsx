@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { FaArrowRight, FaGithub, FaLinkedin, FaArrowDown } from 'react-icons/fa'
-import { socialLinks } from '../../data/personalInfo'
+import { personalInfo, socialLinks } from '../../data/personalInfo'
 import { useReducedMotion } from '../../hooks/useReducedMotion'
 
 /**
@@ -52,131 +52,50 @@ function Hero() {
   }
 
   return (
-    <section
-      id="home"
-      className="min-h-screen flex items-center justify-center pt-20 pb-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden"
-    >
-      {/* Dynamic Background Motion */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-from)_0%,_transparent_65%)] from-cyan-500/5 to-transparent opacity-50" />
+    <section className="bento-card col-span-2 row-span-2 flex flex-col justify-between group">
+      {/* Technical Overlay */}
+      <div className="absolute top-0 right-0 p-4 text-[10px] text-zinc-800 font-mono leading-tight text-right opacity-50">
+        SYSTEM_STATUS: ACTIVE<br />
+        CORE_ARCH: X64_64<br />
+        ENCRYPT: AES-256<br />
+        UPLINK: STABLE
       </div>
 
-      <div className="container mx-auto max-w-7xl relative z-10">
-        <div className="flex flex-col items-center text-center space-y-12">
+      {/* Scanner Effect */}
+      <div className="absolute inset-x-0 top-0 h-[2px] bg-blue-500/10 blur-sm animate-scan pointer-events-none" />
 
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-            className="max-w-4xl space-y-8"
-          >
-            <div className="space-y-6">
-              <motion.div variants={itemVariants} className="flex flex-col items-center space-y-4">
-                <span className="inline-block px-4 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-[10px] font-bold uppercase tracking-[0.3em] text-cyan-500">
-                  EST. 2019 • SENIOR ENGINEER
-                </span>
-              </motion.div>
+      <div className="space-y-6 relative z-10">
+        <div className="flex items-center gap-2">
+          <div className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
+          <span className="text-mono text-blue-500">System Architect</span>
+        </div>
 
-              <motion.h1
-                variants={itemVariants}
-                className="text-6xl sm:text-8xl lg:text-9xl font-black tracking-tighter leading-[0.9] text-white"
-              >
-                Architecting <br />
-                <span className="text-zinc-500">
-                  Digital Legacy.
-                </span>
-              </motion.h1>
+        <motion.h1
+          variants={itemVariants}
+          className="text-5xl lg:text-7xl font-black tracking-tighter leading-none"
+        >
+          EMMANUEL <br />
+          <span className="text-zinc-500">OMBAYE</span>
+        </motion.h1>
 
-              <motion.div
-                variants={itemVariants}
-                className="h-10 sm:h-12 flex items-center justify-center overflow-hidden"
-              >
-                <AnimatePresence mode="wait">
-                  <motion.p
-                    key={currentRoleIndex}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                    className="text-lg sm:text-2xl font-mono tracking-widest text-zinc-400 uppercase"
-                  >
-                    {roles[currentRoleIndex]}
-                  </motion.p>
-                </AnimatePresence>
-              </motion.div>
+        <p className="text-zinc-400 max-w-sm text-sm lg:text-base">
+          {personalInfo.tagline}
+        </p>
+      </div>
 
-              <motion.p
-                variants={itemVariants}
-                className="text-lg sm:text-xl text-zinc-400 max-w-2xl mx-auto leading-relaxed font-normal"
-              >
-                I build high-scale, mission-critical systems that merge robust architecture with exceptional user experiences. Focused on ROI, performance, and future-proof scalability.
-              </motion.p>
-            </div>
-
-            {/* CTAs */}
-            <motion.div
-              variants={itemVariants}
-              className="flex flex-wrap justify-center gap-6 pt-4"
-            >
-              <a
-                href="#projects"
-                className="group relative px-10 py-5 bg-white text-black rounded-xl font-bold uppercase tracking-widest text-xs transition-all duration-300 hover:bg-cyan-500 hover:scale-[1.02] active:scale-[0.98] flex items-center gap-3 overflow-hidden"
-              >
-                Explore Works
-                <FaArrowRight className="transition-transform group-hover:translate-x-1" />
-              </a>
-
-              <a
-                href="#contact"
-                className="px-10 py-5 bg-transparent border border-zinc-800 hover:border-zinc-700 text-white rounded-xl font-bold uppercase tracking-widest text-xs transition-all duration-300 backdrop-blur-md hover:bg-zinc-900/50 flex items-center gap-3 active:scale-[0.98]"
-              >
-                Connect Now
-              </a>
-            </motion.div>
-
-            {/* Socials & Identity */}
-            <motion.div
-              variants={itemVariants}
-              className="flex items-center justify-center gap-8 pt-8"
-            >
-              {[
-                { icon: <FaGithub size={18} />, link: socialLinks.github, label: 'GitHub' },
-                { icon: <FaLinkedin size={18} />, link: socialLinks.linkedin, label: 'LinkedIn' },
-              ].map((social, i) => (
-                <a
-                  key={i}
-                  href={social.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-zinc-500 hover:text-white transition-all duration-300"
-                  aria-label={social.label}
-                >
-                  {social.icon}
-                </a>
-              ))}
-              <div className="h-4 w-[1px] bg-zinc-800" />
-              <div className="flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-500">Available for Projects</span>
-              </div>
-            </motion.div>
-          </motion.div>
-
+      <div className="flex flex-wrap gap-4 mt-8 relative z-10">
+        <button className="px-6 py-2 bg-white text-black text-xs font-bold rounded-full hover:bg-zinc-200 transition-colors">
+          VIEW PROJECTS
+        </button>
+        <div className="flex gap-4 items-center">
+          <a href={socialLinks.github} target="_blank" rel="noopener noreferrer" className="text-zinc-500 hover:text-white transition-colors">
+            <FaGithub size={20} />
+          </a>
+          <a href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer" className="text-zinc-500 hover:text-white transition-colors">
+            <FaLinkedin size={20} />
+          </a>
         </div>
       </div>
-
-      {/* Scroll indicator - Syab style */}
-      {!prefersReducedMotion && (
-        <motion.a
-          href="#projects"
-          animate={{ y: [0, 15, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-12 left-1/2 -translate-x-1/2 text-dark-500 hover:text-cyan-400 transition-colors cursor-pointer flex flex-col items-center gap-3"
-        >
-          <span className="text-[10px] font-black uppercase tracking-[0.5em] rotate-180 [writing-mode:vertical-lr]">Scroll</span>
-          <FaArrowDown size={14} />
-        </motion.a>
-      )}
     </section>
   )
 }

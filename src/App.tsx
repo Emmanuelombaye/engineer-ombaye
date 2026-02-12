@@ -1,6 +1,7 @@
 import { lazy, Suspense } from 'react'
 import Header from './components/Header/Header'
 import Hero from './components/Hero/Hero'
+import StatsBar from './components/StatsBar/StatsBar'
 import About from './components/About/About'
 import { ThemeProvider } from './contexts/ThemeContext'
 import { SEOProvider } from './components/SEOHead/SEOHead'
@@ -34,23 +35,24 @@ function App() {
         <SEOHead />
         <ScrollProgress />
 
-        <div className="min-h-screen bg-zinc-950 text-white selection:bg-cyan-500/10 selection:text-cyan-400 transition-colors duration-300">
+        <div className="min-h-screen bg-black text-white selection:bg-blue-500/10 selection:text-blue-400">
           <Header />
 
-          <main className="relative z-10">
-            {/* Above the fold - loaded immediately */}
-            <Hero />
-            <About />
-
-            {/* Below the fold - lazy loaded */}
-            <Suspense fallback={<LoadingFallback />}>
-              <Experience />
-              <Projects />
-              <Skills />
-              <Contact />
-              <Footer />
-            </Suspense>
+          <main className="pt-24 pb-12 px-4">
+            <div className="bento-container">
+              <Suspense fallback={<div className="h-96 flex items-center justify-center">Loading System...</div>}>
+                <Hero />
+                <StatsBar />
+                <About />
+                <Projects />
+                <Experience />
+                <Skills />
+                <Contact />
+              </Suspense>
+            </div>
           </main>
+
+          <Footer />
         </div>
       </ThemeProvider>
     </SEOProvider>
