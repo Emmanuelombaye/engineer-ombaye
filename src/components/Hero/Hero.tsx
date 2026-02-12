@@ -58,8 +58,7 @@ function Hero() {
     >
       {/* Dynamic Background Motion */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute top-[-10%] right-[-10%] w-[60%] h-[60%] bg-cyan-500/5 rounded-full blur-[120px] animate-pulse-slow" />
-        <div className="absolute bottom-[-10%] left-[-10%] w-[60%] h-[60%] bg-purple-500/5 rounded-full blur-[120px] animate-pulse-slow" style={{ animationDelay: '3s' }} />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-from)_0%,_transparent_65%)] from-cyan-500/5 to-transparent opacity-50" />
       </div>
 
       <div className="container mx-auto max-w-7xl relative z-10">
@@ -73,17 +72,17 @@ function Hero() {
           >
             <div className="space-y-6">
               <motion.div variants={itemVariants} className="flex flex-col items-center space-y-4">
-                <span className="inline-block px-4 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-black uppercase tracking-[0.3em] text-cyan-400">
+                <span className="inline-block px-4 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-[10px] font-bold uppercase tracking-[0.3em] text-cyan-500">
                   EST. 2019 • SENIOR ENGINEER
                 </span>
               </motion.div>
 
               <motion.h1
                 variants={itemVariants}
-                className="text-6xl sm:text-8xl lg:text-9xl font-display font-black tracking-tighter leading-[0.9] text-white"
+                className="text-6xl sm:text-8xl lg:text-9xl font-black tracking-tighter leading-[0.9] text-white"
               >
                 Architecting <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500">
+                <span className="text-zinc-500">
                   Digital Legacy.
                 </span>
               </motion.h1>
@@ -95,11 +94,11 @@ function Hero() {
                 <AnimatePresence mode="wait">
                   <motion.p
                     key={currentRoleIndex}
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -20 }}
-                    transition={{ duration: 0.6, ease: "anticipate" }}
-                    className="text-lg sm:text-2xl font-mono tracking-widest text-dark-400 uppercase"
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                    className="text-lg sm:text-2xl font-mono tracking-widest text-zinc-400 uppercase"
                   >
                     {roles[currentRoleIndex]}
                   </motion.p>
@@ -108,7 +107,7 @@ function Hero() {
 
               <motion.p
                 variants={itemVariants}
-                className="text-lg sm:text-xl text-dark-400 max-w-2xl mx-auto leading-relaxed font-light font-sans"
+                className="text-lg sm:text-xl text-zinc-400 max-w-2xl mx-auto leading-relaxed font-normal"
               >
                 I build high-scale, mission-critical systems that merge robust architecture with exceptional user experiences. Focused on ROI, performance, and future-proof scalability.
               </motion.p>
@@ -121,7 +120,7 @@ function Hero() {
             >
               <a
                 href="#projects"
-                className="group relative px-10 py-5 bg-white text-dark-950 rounded-2xl font-black uppercase tracking-widest text-xs transition-all duration-300 hover:bg-cyan-400 hover:scale-105 shadow-2xl flex items-center gap-3 overflow-hidden"
+                className="group relative px-10 py-5 bg-white text-black rounded-xl font-bold uppercase tracking-widest text-xs transition-all duration-300 hover:bg-cyan-500 hover:scale-[1.02] active:scale-[0.98] flex items-center gap-3 overflow-hidden"
               >
                 Explore Works
                 <FaArrowRight className="transition-transform group-hover:translate-x-1" />
@@ -129,7 +128,7 @@ function Hero() {
 
               <a
                 href="#contact"
-                className="px-10 py-5 bg-transparent border border-white/10 hover:border-white/30 text-white rounded-2xl font-black uppercase tracking-widest text-xs transition-all duration-300 backdrop-blur-md hover:bg-white/5 flex items-center gap-3"
+                className="px-10 py-5 bg-transparent border border-zinc-800 hover:border-zinc-700 text-white rounded-xl font-bold uppercase tracking-widest text-xs transition-all duration-300 backdrop-blur-md hover:bg-zinc-900/50 flex items-center gap-3 active:scale-[0.98]"
               >
                 Connect Now
               </a>
@@ -141,24 +140,24 @@ function Hero() {
               className="flex items-center justify-center gap-8 pt-8"
             >
               {[
-                { icon: <FaGithub size={20} />, link: socialLinks.github, label: 'GitHub' },
-                { icon: <FaLinkedin size={20} />, link: socialLinks.linkedin, label: 'LinkedIn' },
+                { icon: <FaGithub size={18} />, link: socialLinks.github, label: 'GitHub' },
+                { icon: <FaLinkedin size={18} />, link: socialLinks.linkedin, label: 'LinkedIn' },
               ].map((social, i) => (
                 <a
                   key={i}
                   href={social.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-dark-500 hover:text-white transition-all transform hover:scale-125 duration-300"
+                  className="text-zinc-500 hover:text-white transition-all duration-300"
                   aria-label={social.label}
                 >
                   {social.icon}
                 </a>
               ))}
-              <div className="h-4 w-[1px] bg-white/10" />
+              <div className="h-4 w-[1px] bg-zinc-800" />
               <div className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                <span className="text-[10px] font-black uppercase tracking-widest text-dark-500">Available for Projects</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-500">Available for Projects</span>
               </div>
             </motion.div>
           </motion.div>

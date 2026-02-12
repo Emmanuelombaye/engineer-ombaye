@@ -24,8 +24,8 @@ export const engineeringPrinciples = [
 
 export const personalInfo = {
   name: 'Emmanuel Ombaye Okari',
-  profession: 'Senior Software Engineer | System Architect | Technical Leader',
-  tagline: 'Building scalable, secure, production-grade systems that drive business impact',
+  profession: 'Senior Software Engineer | System Architect',
+  tagline: 'Architecting high-scale production systems with precision and long-term ROI.',
   education: 'Bachelor of Science in Computer Science, Maseno University',
   academicQualification: 'KCSE B+',
   email: 'manuelombaye@gmail.com',
@@ -33,7 +33,7 @@ export const personalInfo = {
   github: 'https://github.com/Emmanuelombaye',
   githubUsername: 'Emmanuelombaye',
   linkedin: 'https://linkedin.com/in/emmanuelombaye',
-  valueProposition: 'I architect and build scalable, secure, production-grade systems that solve complex business problems. With expertise spanning full-stack development, AI/ML, and cloud infrastructure, I deliver solutions that drive measurable business impact.',
+  valueProposition: 'I specialize in engineering scalable, secure, and production-grade systems. My expertise spans distributed architectures, full-stack engineering, and AI/ML, focusing on clear technical strategy and measurable business impact.',
   engineeringPrinciples,
 }
 

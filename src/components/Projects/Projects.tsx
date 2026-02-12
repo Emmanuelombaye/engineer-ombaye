@@ -61,65 +61,37 @@ function Projects() {
         {/* Section Header */}
         <motion.div
           ref={ref}
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
           className="mb-16"
         >
-          <div className="flex items-center gap-4 mb-4">
-            <div className="h-[2px] w-12 bg-gradient-to-r from-cyan-500 to-purple-600" />
-            <span className="text-[12px] font-bold uppercase tracking-[0.3em] text-cyan-400">Portfolio</span>
+          <div className="flex items-center gap-3 mb-4">
+            <div className="h-[1px] w-10 bg-cyan-500" />
+            <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-cyan-500">Selected Works</span>
           </div>
-          <h2 className="text-5xl sm:text-7xl font-bold text-white tracking-tighter mb-8 leading-[1.1]">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 via-purple-500 to-purple-600">
-              Projects
-            </span>
+          <h2 className="text-5xl sm:text-7xl font-black text-white tracking-tighter mb-6 leading-none">
+            Projects
           </h2>
-          <p className="text-lg text-dark-300 max-w-3xl font-normal leading-relaxed">
-            I specialize in building complex, high-scale production systems. Here's a selected overview of my architectural contributions across full-stack engineering and AI/ML.
+          <p className="text-lg text-zinc-400 max-w-2xl font-normal leading-relaxed">
+            A showcase of complex systems, from distributed architectures to mission-critical applications.
           </p>
         </motion.div>
 
-        {/* Two-Tier Filter Navigation */}
-        <div className="space-y-10 mb-20 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-
-          {/* Tier 1: Categories */}
-          <div className="flex flex-col space-y-4">
-            <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-dark-500">Domain Filter</span>
-            <div className="flex flex-wrap gap-3">
-              {['All', ...projectCategories].map((cat) => (
-                <button
-                  key={cat}
-                  onClick={() => { setActiveCategory(cat); setActiveSkill('All'); }}
-                  className={`px-8 py-3 rounded-full text-[11px] font-bold uppercase tracking-widest transition-all duration-300 border ${activeCategory === cat
-                    ? 'bg-gradient-to-r from-cyan-600 to-purple-600 border-transparent text-white shadow-xl shadow-cyan-500/10'
-                    : 'bg-dark-900/50 border-dark-800 text-dark-400 hover:border-cyan-500/50 hover:text-white'
-                    }`}
-                >
-                  {cat}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* Tier 2: Technical Skills */}
-          <div className="flex flex-col space-y-4">
-            <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-dark-500">Technology Focus</span>
-            <div className="flex flex-wrap gap-2">
-              {allSkills.slice(0, 15).map((skill) => (
-                <button
-                  key={skill}
-                  onClick={() => setActiveSkill(skill)}
-                  className={`px-5 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest transition-all duration-300 border ${activeSkill === skill
-                    ? 'bg-cyan-500/10 border-cyan-500 text-cyan-400'
-                    : 'bg-dark-900/30 border-dark-800/50 text-dark-500 hover:border-dark-700 hover:text-dark-300'
-                    }`}
-                >
-                  {skill}
-                </button>
-              ))}
-            </div>
-          </div>
+        {/* Simplified Filter Navigation */}
+        <div className="flex flex-wrap gap-2 mb-16 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
+          {['All', ...projectCategories].map((cat) => (
+            <button
+              key={cat}
+              onClick={() => { setActiveCategory(cat); setActiveSkill('All'); }}
+              className={`px-6 py-2.5 rounded-lg text-[10px] font-bold uppercase tracking-[0.2em] transition-all duration-300 border ${activeCategory === cat
+                ? 'bg-white border-white text-black'
+                : 'bg-zinc-900/50 border-zinc-800 text-zinc-500 hover:border-zinc-700 hover:text-white'
+                }`}
+            >
+              {cat}
+            </button>
+          ))}
         </div>
 
         {/* Project Grid */}
@@ -136,37 +108,33 @@ function Projects() {
                 key={project.id}
                 layout
                 variants={cardVariants}
-                exit={{ opacity: 0, scale: 0.95 }}
-                className="h-full group"
+                exit={{ opacity: 0, scale: 0.98 }}
+                className="h-full"
               >
-                <div className="h-full bg-dark-900/40 border border-dark-800/60 rounded-xl overflow-hidden hover:border-dark-700 hover:bg-dark-900/60 transition-all duration-500 relative flex flex-col group p-6">
+                <div className="h-full bg-zinc-900/30 border border-zinc-800/50 rounded-xl overflow-hidden hover:border-zinc-700 hover:bg-zinc-900/50 transition-all duration-500 flex flex-col p-6 group">
                   {/* Decorative Project Header */}
-                  <div className="mb-6 h-32 w-full rounded-lg bg-dark-950/80 relative overflow-hidden flex items-center justify-center group-hover:bg-dark-950 transition-colors">
-                    <div className={`absolute inset-0 opacity-10 bg-gradient-to-br ${project.id % 3 === 0 ? 'from-cyan-500 to-purple-500' :
-                      project.id % 3 === 1 ? 'from-purple-500 to-blue-500' :
-                        'from-emerald-500 to-cyan-500'
-                      }`} />
-                    <FaCode className="text-4xl text-dark-800 group-hover:text-cyan-500/20 transition-all group-hover:scale-125 duration-700" />
+                  <div className="mb-6 h-32 w-full rounded-lg bg-zinc-950 flex items-center justify-center group-hover:bg-zinc-900 transition-colors border border-zinc-800/50">
+                    <FaCode className="text-3xl text-zinc-800 group-hover:text-cyan-500/20 transition-all duration-700" />
                   </div>
 
                   {/* Project Info */}
                   <div className="flex-1 space-y-4">
                     <div className="flex flex-wrap gap-2">
-                      <span className="px-2 py-0.5 rounded bg-dark-950 border border-dark-800 text-[9px] font-black uppercase tracking-widest text-cyan-500">
+                      <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-cyan-500">
                         {project.category}
                       </span>
                     </div>
-                    <h3 className="text-xl font-bold text-white tracking-tight group-hover:text-cyan-400 transition-colors line-clamp-1">
+                    <h3 className="text-xl font-bold text-white tracking-tight group-hover:text-cyan-400 transition-colors">
                       {project.title}
                     </h3>
-                    <p className="text-sm text-dark-300 font-normal leading-relaxed line-clamp-3">
+                    <p className="text-sm text-zinc-400 font-normal leading-relaxed line-clamp-3">
                       {project.description}
                     </p>
 
                     {/* Tech Stack Pills */}
-                    <div className="flex flex-wrap gap-1.5 pt-2">
-                      {project.techStack.slice(0, 4).map((tech: string) => (
-                        <span key={tech} className="text-[9px] font-bold text-dark-500 uppercase tracking-tighter">
+                    <div className="flex flex-wrap gap-2 pt-2">
+                      {project.techStack.slice(0, 3).map((tech: string) => (
+                        <span key={tech} className="text-[8px] font-bold text-zinc-600 uppercase tracking-widest px-2 py-1 bg-zinc-900 rounded">
                           {tech}
                         </span>
                       ))}
@@ -174,12 +142,12 @@ function Projects() {
                   </div>
 
                   {/* Links Footer */}
-                  <div className="mt-8 flex items-center justify-between border-t border-dark-800 pt-6">
+                  <div className="mt-8 flex items-center justify-between border-t border-zinc-800/50 pt-6">
                     <button
                       onClick={() => setSelectedProject(project)}
-                      className="text-[11px] font-bold uppercase tracking-[0.2em] text-cyan-400 flex items-center gap-2 group/btn"
+                      className="text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-400 hover:text-white flex items-center gap-2 transition-colors"
                     >
-                      Read More <FaChevronRight size={10} className="group-hover/btn:translate-x-1 transition-transform" />
+                      Case Study <FaChevronRight size={8} />
                     </button>
 
                     <div className="flex gap-4">
@@ -187,20 +155,20 @@ function Projects() {
                         href={project.githubLink}
                         target="_blank"
                         rel="noopener"
-                        className="text-dark-500 hover:text-white transition-colors"
-                        title="Visit GitHub"
+                        className="text-zinc-500 hover:text-white transition-colors"
+                        title="View Code"
                       >
-                        <FaGithub size={18} />
+                        <FaGithub size={16} />
                       </a>
                       {project.liveLink && (
                         <a
                           href={project.liveLink}
                           target="_blank"
                           rel="noopener"
-                          className="text-dark-500 hover:text-white transition-colors"
+                          className="text-zinc-500 hover:text-white transition-colors"
                           title="Live Demo"
                         >
-                          <FaGlobe size={18} />
+                          <FaGlobe size={16} />
                         </a>
                       )}
                     </div>

@@ -6,7 +6,6 @@ import { ThemeProvider } from './contexts/ThemeContext'
 import { SEOProvider } from './components/SEOHead/SEOHead'
 import SEOHead from './components/SEOHead/SEOHead'
 import ScrollProgress from './components/ScrollProgress/ScrollProgress'
-import ParticleBackground from './components/ParticleBackground/ParticleBackground'
 
 // Lazy load below-fold components for performance
 const Experience = lazy(() => import('./components/Experience/Experience'))
@@ -34,9 +33,8 @@ function App() {
       <ThemeProvider>
         <SEOHead />
         <ScrollProgress />
-        <ParticleBackground />
 
-        <div className="min-h-screen bg-dark-950 text-white selection:bg-cyan-500/30 selection:text-cyan-200 transition-colors duration-300">
+        <div className="min-h-screen bg-zinc-950 text-white selection:bg-cyan-500/10 selection:text-cyan-400 transition-colors duration-300">
           <Header />
 
           <main className="relative z-10">
