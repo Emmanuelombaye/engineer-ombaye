@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #0a0a0c;
+  --color-surface: #121216;
+  --color-border: #1f1f27;
+  --color-primary: #8b5cf6; /* Neon Purple */
+  --color-secondary: #3b82f6; /* Neon Blue */
+  
+  --color-foreground: #f8fafc;
+  --color-muted: #94a3b8;
+}
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+}
+
+html,
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background: var(--color-primary);
+  color: white;
+}
+
+/* Glassmorphism utilities */
+@utility glass {
+  background: rgba(18, 18, 22, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+@utility text-glow {
+  text-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
+}

@@ -1,0 +1,18 @@
+import { cn } from '@/lib/utils';
+import * as React from 'react';
+
+interface SectionProps extends React.HTMLAttributes<HTMLElement> {
+  children: React.ReactNode;
+  containerClass?: string;
+  id?: string;
+}
+
+export function Section({ children, className, containerClass, id, ...props }: SectionProps) {
+  return (
+    <section id={id} className={cn("py-20 md:py-32", className)} {...props}>
+      <div className={cn("max-w-7xl mx-auto px-4 sm:px-6 lg:px-8", containerClass)}>
+        {children}
+      </div>
+    </section>
+  );
+}

@@ -1,179 +1,36 @@
-# Engineer Ombaye - Portfolio Website
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-Modern, professional portfolio website for Emmanuel Ombaye Okari - Computer Scientist, Full-Stack Developer, and AI & Automation Engineer.
+## Getting Started
 
-## 🚀 Features
-
-- **Modern React + TypeScript + Vite** setup
-- **Dark/Light Mode** toggle with system preference detection
-- **Responsive Design** - Mobile-first approach
-- **40+ Projects** with filtering capabilities
-- **Comprehensive Skills Sections** - 16 skill categories
-- **WordPress Services** - Dedicated section
-- **Contact Form** - Ready for integration
-- **GitHub Integration** - Social proof and stats
-- **Clean, Maintainable Code** - Well-commented and organized
-
-## 📁 Project Structure
-
-```
-src/
-├── components/          # React components
-│   ├── Header/         # Navigation header with theme toggle
-│   ├── Hero/           # Hero section with CTA buttons
-│   ├── Skills/         # Skills and expertise sections
-│   ├── Services/       # Freelance services
-│   ├── WordPress/      # WordPress services section
-│   ├── Projects/       # Filterable projects portfolio
-│   ├── Testimonials/   # Client testimonials and GitHub stats
-│   ├── Contact/        # Contact form and information
-│   └── Footer/         # Footer with social links
-├── contexts/           # React contexts
-│   └── ThemeContext.tsx    # Theme management (dark/light)
-├── data/               # Data files
-│   ├── personalInfo.ts     # Personal information
-│   ├── skillsData.ts       # Skills and categories
-│   └── projectsData.ts     # Projects portfolio data
-├── App.tsx             # Main app component
-├── main.tsx            # React entry point
-└── index.css           # Global styles with Tailwind
-```
-
-## 🛠️ Tech Stack
-
-- **React 19** - UI library
-- **TypeScript** - Type safety
-- **Vite** - Build tool and dev server
-- **Tailwind CSS** - Utility-first CSS framework
-- **React Icons** - Icon library
-
-## 📦 Installation
+First, run the development server:
 
 ```bash
-# Install dependencies
-npm install
-
-# Start development server
 npm run dev
-
-# Build for production
-npm run build
-
-# Preview production build
-npm run preview
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-## ⚙️ Configuration
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-### Personal Information
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-Edit `src/data/personalInfo.ts` to update:
-- Name, profession, education
-- Contact information (email, phone)
-- GitHub profile
-- Value proposition
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-### Skills
+## Learn More
 
-Edit `src/data/skillsData.ts` to:
-- Add/remove skills in each category
-- Update proficiency levels
-- Modify freelancing skill paths
+To learn more about Next.js, take a look at the following resources:
 
-### Projects
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-Edit `src/data/projectsData.ts` to:
-- Add/remove projects
-- Update project details
-- Change categories and status
-- Update GitHub links
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-### Theme
+## Deploy on Vercel
 
-The theme system is managed in `src/contexts/ThemeContext.tsx`. It automatically:
-- Saves theme preference to localStorage
-- Detects system preference on first visit
-- Provides toggle functionality
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-## 🎨 Customization
-
-### Colors
-
-Tailwind CSS is configured in `tailwind.config.js`. You can customize:
-- Primary colors (blue, purple gradients)
-- Dark mode colors
-- Component-specific colors
-
-### Styling
-
-- Global styles: `src/index.css`
-- Component styles: Inline Tailwind classes
-- Custom animations: CSS in component files or index.css
-
-## 📝 Adding New Sections
-
-1. Create a new component in `src/components/[SectionName]/`
-2. Add it to `src/App.tsx`
-3. Update navigation in `src/components/Header/Header.tsx` if needed
-
-## 🔗 Integration Points
-
-### Contact Form
-
-The contact form in `src/components/Contact/Contact.tsx` currently logs to console. To integrate:
-
-1. **Email Service** (e.g., EmailJS, Formspree, SendGrid)
-2. **Backend API** (e.g., Node.js, Python Flask/Django)
-3. **Serverless Function** (e.g., Vercel, Netlify Functions)
-
-### GitHub Stats
-
-Update `src/components/Testimonials/Testimonials.tsx` to fetch real GitHub stats using:
-- GitHub API
-- GitHub Stats API wrapper
-- Serverless function
-
-### CV Download
-
-Update the CV download button in `src/components/Contact/Contact.tsx` to:
-- Link to actual CV file in `public/` folder
-- Use a file hosting service
-- Trigger download programmatically
-
-## 🌐 Deployment
-
-### Vercel (Recommended)
-
-```bash
-npm run build
-vercel deploy
-```
-
-### Netlify
-
-```bash
-npm run build
-# Deploy `dist` folder
-```
-
-### GitHub Pages
-
-```bash
-npm run build
-# Deploy `dist` folder to gh-pages branch
-```
-
-## 📄 License
-
-MIT License - feel free to use this portfolio as a template for your own!
-
-## 👤 Author
-
-**Emmanuel Ombaye Okari**
-- Email: manuelombaye@gmail.com
-- Phone: 0790063154
-- GitHub: [@Emmanuelombaye](https://github.com/Emmanuelombaye)
-
----
-
-Built with ❤️ using React, TypeScript, and Tailwind CSS
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
